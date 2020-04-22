@@ -36,6 +36,7 @@ type responseUser {
     activities:[String]
     gathers: [String]
     error: String
+    token: String
 }
 
 type Like {
@@ -109,6 +110,12 @@ input  register {
     gathers: [String!]
 }
 
+input testUser{
+    activities: String!
+    username: String!
+    token: String!
+}
+
 `
 ;
 
@@ -128,4 +135,5 @@ export const userMutations = `
     deleteLike(id: inputDelete!): responseDelete!
 
     register(user: register!): responseUser!
+    test(user: testUser!): responseDelete!
 `;

@@ -5,8 +5,9 @@ const url_user = "3000/gatherme-users-ms";
 const auth_ms_PORT = '3001'
 const comu_ms_PORT = '3002/'
 const sugg_ms_PORT = '80'
-const req_ms_PORT = '4444';
-const req_entrypoint = 'gatherme-requests';
+const req_ms_PORT = '4444'
+const req_entrypoint = 'gatherme-requests'
+
 
 export async function getUserByID(id) {
 	let res = await axios.get(url + url_user + "/user-id/" + id)
@@ -387,11 +388,11 @@ export async function sugg_newIs(likeInfo) {
 }
 //category
 export async function sugg_getCategories() {
-	let res = axios.get(url + sugg_ms_PORT + '/Category');
+	let res = await axios.get(url + sugg_ms_PORT + '/Category');
 	return res.data;
 }
 export async function sugg_filterByCategory(name) {
-	let res = axios.get(`${url}${sugg_ms_PORT}/Category/FilterByCategory?name=${name}`);
+	let res = await axios.get(`${url}${sugg_ms_PORT}/Category/FilterByCategory?name=${name}`);
 	return res.data;
 }
 export async function sugg_newCategory(category) {
@@ -399,20 +400,20 @@ export async function sugg_newCategory(category) {
 	return res.data;
 }
 async function sugg_existCategory(name){
-	let res = axios.get(`${url}${sugg_ms_PORT}/Category/ExistCategory?name=${name}`);
+	let res = await axios.get(`${url}${sugg_ms_PORT}/Category/ExistCategory?name=${name}`);
 	return res.data;
 }
 //suggestion
 export async function sugg_getSuggestions() {
-	let res = axios.get(url + sugg_ms_PORT + '/Suggestion');
+	let res = await axios.get(url + sugg_ms_PORT + '/Suggestion');
 	return res.data;
 }
 export async function sugg_createSuggest(user) {
-	let res = axios.post(`${url}${sugg_ms_PORT}/Suggestion/CreateSuggest`, user);
+	let res = await axios.post(`${url}${sugg_ms_PORT}/Suggestion/CreateSuggest`, user);
 	return res.data;
 }
 export async function sugg_deactivate(suggestion) {
-	let res = axios.put(`${url}${sugg_ms_PORT}/Suggestion/Deactivate`, suggestion);
+	let res = await axios.put(`${url}${sugg_ms_PORT}/Suggestion/Deactivate`, suggestion);
 	return res.data;
 }
 
@@ -443,7 +444,7 @@ export async function register(user) {
 	if (singupResponse.email != null) {
 		let userResponse = await createUser(userBody)
 		console.log("Create user successful");
-		return userResponse;
+		return userResponse
 	}
 
 }
