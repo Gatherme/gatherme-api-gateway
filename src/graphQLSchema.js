@@ -49,13 +49,20 @@ import {
 import {activityTypeDef,	
 		activityMutations,
 		activityQueries
-	} from './activities-ms/activityTypeDef'
+} from './activities-ms/activityTypeDef'
+
+import {
+	CommunityMutations,
+	CommunityQueries,
+	CommunityTypeDef
+} from './communities-ms/communityTypeDef';
 
 import userResolvers from './users-ms/userResolvers';
 import authResolvers from './authentication-ms/authResolvers';
 import comuResolvers from './comunication-ms/comuResolvers';
 import requestResolvers from './requests-ms/requestResolvers';
 import activityResolvers from './activities-ms/activityResolvers';
+import CommunityResolvers from './communities-ms/communityResolvers';
 import {
 	sugg_userResolvers,
 	sugg_likeResolvers,
@@ -78,7 +85,8 @@ const mergedTypeDefs = mergeSchemas(
 		sugg_likeTypeDef,
 		sugg_categoryTypeDef,
 		sugg_suggestionTypeDef,
-		sugg_reportTypeDef
+		sugg_reportTypeDef,
+		CommunityTypeDef
 	],
 	[
 		userQueries,
@@ -89,7 +97,8 @@ const mergedTypeDefs = mergeSchemas(
 		sugg_likeQueries,
 		sugg_categoryQueries,
 		sugg_suggestionQueries,
-		sugg_reportQueries
+		sugg_reportQueries,
+		CommunityQueries
 	],
 	[
 		userMutations,
@@ -101,7 +110,8 @@ const mergedTypeDefs = mergeSchemas(
 		sugg_likeMutations,
 		sugg_categoryMutations,
 		sugg_suggestionMutations,
-		sugg_reportMutations
+		sugg_reportMutations,
+		CommunityMutations
 	]
 );
 
@@ -119,6 +129,7 @@ export default makeExecutableSchema({
 		sugg_likeResolvers,
 		sugg_categoryResolvers,
 		sugg_suggestionResolvers,
-		sugg_reportResolvers
+		sugg_reportResolvers,
+		CommunityResolvers
 	)
 });

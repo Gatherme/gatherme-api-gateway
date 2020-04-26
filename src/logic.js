@@ -570,11 +570,11 @@ export async function createCommunity(body, token){
 export async function updateCommunity(id, body) {
 	console.log(body);
 	let res = await axios.put(url + comm_ms_PORT + "/comunities/" + id, body);
-	console.log(res.data.id)
 	return res;
 }
 
 export async function deleteCommunity(id){
+	console.log(body);
 	let res = await axios.delete(url + comm_ms_PORT + "/comunities/");
 	let sta = {
 		Status: res.status

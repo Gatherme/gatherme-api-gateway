@@ -14,7 +14,7 @@ type CommunityRequest {
     state:  String
     comunity_id:  Int
 }
-type Response {
+type Response2 {
     Status: Int
 }
 input CommunityInput {
@@ -42,8 +42,8 @@ export const CommunityQueries = `
 ;
 
 export const CommunityMutations = `
-    createCommunity(Community: CommunityInput, token: String): ReturnId
+    createCommunity(Community: CommunityInput, token: String): Community
     updateCommunity(id: Int, Community: CommunityInput): ReturnId 
-    deleteCommunity(id: Int): Response
-    createRequestCommunity(id: Int, comment: CommunityRequestInput):  Response
+    deleteCommunity(id: Int): Response2
+    createRequestCommunity(id: Int, CommunityRequest: CommunityRequestInput):  Response2
 `
