@@ -546,49 +546,6 @@ export async function register(user) {
 		console.log("Create user successful");
 		return userResponse
 	}
-
-	///---------Community-------///
-
-	export async function getCommunityByID(id) {
-		let res = await axios.get(url + comm_ms_PORT + "/comunities/" + id);
-		return res.data;
-	}
-
-	export async function getAllActivities() {
-		let res = await axios.get(url + comm_ms_PORT + "/comunities");
-		return res.data;
-	}
-
-	export async function createCommunity(body, token){
-		console.log(body);
-		let res = await axios.post(url + comm_ms_PORT + "/comunities", body);
-		console.log(res.data)
-		return res;
-	}
-
-	export async function updateCommunity(id, body) {
-		console.log(body);
-		let res = await axios.put(url + comm_ms_PORT + "/comunities/" + id, body);
-		console.log(res.data.id)
-		return res;
-	}
-
-	export async function deleteCommunity(id){
-		let res = await axios.delete(url + comm_ms_PORT + "/comunities/");
-		let sta = {
-			Status: res.status
-		}
-		return sta;
-
-	}
-
-	export async function createRequestCommunity(body) {
-		console.log(body);
-		let res = await axios.post(url + comm_ms_PORT + "/comunities/", body);
-		console.log(res.status)
-		return res;
-	}
-	
 }
 
 ///---------Community-------///
@@ -598,7 +555,7 @@ export async function getCommunityByID(id) {
 	return res.data;
 }
 
-export async function getAllActivities() {
+export async function getAllCommunities() {
 	let res = await axios.get(url + comm_ms_PORT + "/comunities");
 	return res.data;
 }
