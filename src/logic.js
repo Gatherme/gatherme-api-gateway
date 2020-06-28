@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const url = "http://172.17.0.1:";
-const url_user = "3000/gatherme-users-ms";
+const url_user = `http://${process.env.USERS_HOST}:3000/gatherme-users-ms`;
 const auth_ms_PORT = '3001'
 const comu_ms_PORT = '3002'
 const sugg_ms_PORT = '80'
@@ -10,38 +10,38 @@ const req_entrypoint = 'gatherme-requests'
 
 
 export async function getUserByID(id) {
-	let res = await axios.get(url + url_user + "/user-id/" + id)
+	let res = await axios.get(url_user + "/user-id/" + id)
 	return res.data
 
 }
 
 export async function getLikeByID(id) {
-	let res = await axios.get(url + url_user + "/like-id/" + id)
+	let res = await axios.get(url_user + "/like-id/" + id)
 	return res.data
 
 }
 
 export async function getUserByUsername(username) {
-	let res = await axios.get(url + url_user + "/user-username/" + username)
+	let res = await axios.get(url_user + "/user-username/" + username)
 	return res.data[0]
 
 }
 
 export async function getUserByEmail(email) {
-	let res = await axios.get(url + url_user + "/user-email/" + email)
+	let res = await axios.get(url_user + "/user-email/" + email)
 	return res.data[0]
 
 }
 
 
 export async function getLikesByCategory(category) {
-	let res = await axios.get(url + url_user + "/like-category/" + category)
+	let res = await axios.get(url_user + "/like-category/" + category)
 	return res.data
 }
 
 
 export async function createUser(body) {
-	let res = await axios.post(url + url_user + "/create-user", body);
+	let res = await axios.post(url_user + "/create-user", body);
 	return res.data;
 
 }
@@ -94,7 +94,7 @@ export async function createLike(body,username,token) {
 		}
 		let relationLike = await sugg_newIs(relationInput)
 		console.log(relationLike)
-		let res = await axios.post(url + url_user + "/create-like", body);
+		let res = await axios.post(url_user + "/create-like", body);
 		let adduser = await addLikeToUser(body.name,username,token)
 		console.log(adduser)
 	
@@ -114,7 +114,7 @@ export async function createLike(body,username,token) {
 
 export async function updateUser(body) {
 
-	let res = await axios.put(url + url_user + "/update-user", body);
+	let res = await axios.put(url_user + "/update-user", body);
 	return res.data;
 
 }
@@ -184,21 +184,21 @@ export async function addGatherToUser(gather, username, token) {
 
 export async function updateLike(body) {
 
-	let res = await axios.put(url + url_user + "/update-like", body);
+	let res = await axios.put(url_user + "/update-like", body);
 	return res.data;
 
 }
 
 export async function deleteUser(body) {
 
-	let res = await axios.delete(url + url_user + "/delete-user", { data: body });
+	let res = await axios.delete(url_user + "/delete-user", { data: body });
 
 }
 
 
 export async function deleteLike(body) {
 
-	let res = await axios.delete(url + url_user + "/delete-like", { data: body });
+	let res = await axios.delete(url_user + "/delete-like", { data: body });
 
 }
 

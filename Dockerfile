@@ -1,6 +1,8 @@
 FROM node:carbon-slim
 
 ENV AC_HOST="activitiesms"
+ENV USERS_HOST="gatherme-users-ms"
+
 # Create app directory
 WORKDIR /gatherme-api-gateway
 
