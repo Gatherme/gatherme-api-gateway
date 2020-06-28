@@ -10,7 +10,7 @@ import {getActivityByID,
        getActivitiesByLike
     }from '../logic'
 
-const URL = `http://172.17.0.1:4000/gatherme-activities-ms/activities/activity`;
+const URL = `http://${process.env.AC_HOST}:4000/gatherme-activities-ms/activities/activity`;
 
 const activityResolvers = {
     Query: {

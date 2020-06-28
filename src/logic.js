@@ -303,6 +303,7 @@ export async function getActivityByID(url) {
 export async function getAllActivities(url) {
 	console.log(url);
 	let res = await axios.get(url);
+	console.log("res", res);
 	return res.data;
 }
 
