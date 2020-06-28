@@ -69,39 +69,39 @@ import {
 const mergedTypeDefs = mergeSchemas(
 	[
 		'scalar JSON',
-		//userTypeDef,
-		//requestTypeDef,
-	//	authTypeDefs,
-	//	comuTypeDefs,
-		activityTypeDef
-	//	sugg_userTypeDef,
-	//	sugg_likeTypeDef,
-	//	sugg_categoryTypeDef,
-	//	sugg_suggestionTypeDef,
-	//	sugg_reportTypeDef
+		userTypeDef,
+		requestTypeDef,
+		authTypeDefs,
+		comuTypeDefs,
+		activityTypeDef,
+		sugg_userTypeDef,
+		sugg_likeTypeDef,
+		sugg_categoryTypeDef,
+		sugg_suggestionTypeDef,
+		sugg_reportTypeDef
 	],
 	[
-	//	userQueries,
-	//	requestQueries,
-	//	comuQueries,
-		activityQueries
-	//	sugg_userQueries,
-	//	sugg_likeQueries,
-	//	sugg_categoryQueries,
-	//	sugg_suggestionQueries,
-	//	sugg_reportQueries
+		userQueries,
+		requestQueries,
+		comuQueries,
+		activityQueries,
+		sugg_userQueries,
+		sugg_likeQueries,
+		sugg_categoryQueries,
+		sugg_suggestionQueries,
+		sugg_reportQueries
 	],
 	[
-	//	userMutations,
-	//	requestMutations,
-	//	authMutations,
-	//	comuMutations,
-		activityMutations
-	//	sugg_userMutations,
-	//	sugg_likeMutations,
-	//	sugg_categoryMutations,
-	//	sugg_suggestionMutations,
-	//	sugg_reportMutations
+		userMutations,
+		requestMutations,
+		authMutations,
+		comuMutations,
+		activityMutations,
+		sugg_userMutations,
+		sugg_likeMutations,
+		sugg_categoryMutations,
+		sugg_suggestionMutations,
+		sugg_reportMutations
 	]
 );
 
@@ -110,15 +110,15 @@ export default makeExecutableSchema({
 	typeDefs: mergedTypeDefs,
 	resolvers: merge(
 		{ JSON: GraphQLJSON }, // allows scalar JSON
-		//userResolvers,
-		//requestResolvers,
-		//authResolvers,
-		//comuResolvers,
-		activityResolvers
-		//sugg_userResolvers,
-		//sugg_likeResolvers,
-		//sugg_categoryResolvers,
-		//sugg_suggestionResolvers,
-		//sugg_reportResolvers
+		userResolvers,
+		requestResolvers,
+		authResolvers,
+		comuResolvers,
+		activityResolvers,
+		sugg_userResolvers,
+		sugg_likeResolvers,
+		sugg_categoryResolvers,
+		sugg_suggestionResolvers,
+		sugg_reportResolvers
 	)
 });
